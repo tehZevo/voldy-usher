@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "eris": "^0.17.1",
+    "protopost": "github:tehzevo/protopost"
+  }
+}
