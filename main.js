@@ -1,3 +1,4 @@
+require('dotenv').config();
 var Eris = require("eris");
 var protopost = require("protopost").client;
 
@@ -5,7 +6,47 @@ var HOST = process.env["VOLDY_HOST"];
 
 async function PREDICT(prompt)
 {
-  var request = {"fn_index":3,"data":[prompt,"","None",20,"Euler a",true,false,1,1,7,-1,-1,0,0,0,512,512,"None",null,false,"Seed","","Steps","",[],"",""],"session_hash":"4nn9ggqy6b9"}
+  var request = {
+      "fn_index": 11,
+      "data": [
+          prompt,
+          "",
+          "None",
+          "None",
+          20,
+          "Euler a",
+          true,
+          false,
+          1,
+          1,
+          7,
+          -1,
+          -1,
+          0,
+          0,
+          0,
+          false,
+          512,
+          512,
+          false,
+          false,
+          0.7,
+          "None",
+          false,
+          false,
+          null,
+          "",
+          "Seed",
+          "",
+          "Steps",
+          "",
+          true,
+          false,
+          null,
+          ""
+      ],
+      "session_hash": "ueym2xe0vye"
+  };
   var response = await protopost(`${HOST}/api/predict`, request);
   return response.data[0][0];
 }
